@@ -23,7 +23,7 @@ class easy_to_use(object):
         return self.table
     
     def global_ip(self):
-        self.g_ip=requests.get('http://ip.42.pl/short').text
+        self.g_ip=requests.get('http://api.ipify.org').text
         self.data={"Global IP":[self.g_ip]}
         self.table=tabulate(self.data,headers="keys",tablefmt="grid")
         return self.table
@@ -85,33 +85,87 @@ if __name__=='__main__':
                 print(object.system_ip())
             except Exception as e:
                 print(f'Some problem arise {e}')
+            print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
         elif ask==2:
             try:
                 print(object.global_ip())
             except Exception as e:
                 print(f'Some problem arise {e}')
+            print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
         elif ask==3:
             try:
                 print(object.mac_address())
             except Exception as e:
                 print(f'Some problem arise {e}')
+            print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
         elif ask==4:
             try:
                 print(object.host())
             except Exception as e:
                 print(f'Some problem arise {e}')
+            print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
         elif ask==5:
             try:
                 print('Wait for Couple of Seconds !!')
                 print(Speed_test())
             except Exception as e:
                 print(f'Some problem arise {e}')
+            print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
         elif ask==6:
                 try:
                     ask=input('Enter URL: ')
                     print(object.ping_test(ask))
                 except Exception as e:
                     print(f'Some problem arise {e}')
+                print("Press 'B' to back to main menu \nPress 'Q' to Quit")
+                check=input()
+                if check=='Q':
+                    print('      Quit !!        ')
+                    break
+                elif check=='B':
+                    thisdict
+                else:
+                    print('Wrong Input !!\nBack to Main Menu')
         elif ask==90:
             print('      Quit !!        ')
             sys.exit()
