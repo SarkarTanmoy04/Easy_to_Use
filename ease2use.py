@@ -1,4 +1,5 @@
 import socket,getmac,requests,speedtest,psutil,sys,os
+import time
 from tabulate import tabulate
 
 
@@ -36,7 +37,15 @@ class easy_to_use(object):
         else:
             return False
 
-class Speed_test(object):
+    def network_interfaces(self):
+        self.scanner=psutil.net_if_addrs()
+        nodes=[]
+        for interface_name,_ in self.scanner.items():
+            nodes.append([interface_name])
+        table=tabulate(nodes,headers=[' Network Interfaces / Adapters '],tablefmt="pretty",showindex=True)
+        return table
+
+class Speed_test():
     def __init__(self):
         self.scanner = psutil.net_if_addrs()
         self.speed = speedtest.Speedtest()
@@ -74,7 +83,8 @@ if __name__=='__main__':
             ["3", "Mac Address"],
             ["4", "Host Name"],
             ["5", "Network Speed"],
-            ["6", "Check Ping"],
+            ["6", "Network Interfaces / Adaptors"],
+            ["7", "Check Ping"],
             ["90", "Quit"]
         ]
         table=tabulate(thisdict,headers=['___ Menu ___'],tablefmt='fancy_grid')
@@ -152,6 +162,21 @@ if __name__=='__main__':
             else:
                 print('Wrong Input !!\nBack to Main Menu')
         elif ask==6:
+            try:
+                print('___ List of Network Interfaces ___\n')
+                print(object.network_interfaces())
+            except Exception as e:
+                print(f'Some problem arise {e}')
+            print("\nPress 'B' to back to main menu \nPress 'Q' to Quit")
+            check=input()
+            if check=='Q':
+                print('      Quit !!        ')
+                break
+            elif check=='B':
+                thisdict
+            else:
+                print('Wrong Input !!\nBack to Main Menu')
+        elif ask==7:
                 try:
                     ask=input('Enter URL: ')
                     print(object.ping_test(ask))
